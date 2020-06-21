@@ -10,6 +10,21 @@ import { FooterComponent } from './footer/footer.component';
 import { AdminModule } from './admin/admin.module';
 import { StructureDirectiveModule } from './structure-directive/structure-directive.module';
 import { AttributeDirectiveModule } from './attribute-directive/attribute-directive.module';
+import { PropsModule } from './props/props.module';
+import { DemoInputComponent } from './props/demo-input/demo-input.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+// Routing
+import { Routes, RouterModule } from '@angular/router';
+import { AdminComponent } from './admin/admin.component';
+
+
+// Nơi định nghĩa cacs route của ứng dụng
+const appRoutes: Routes = [
+  { path: '', component: AdminComponent },
+  // Nếu url/admin thì trang admin load lên
+  { path: 'admin', component: AdminComponent },
+];
 
 @NgModule({
   declarations: [
@@ -24,9 +39,12 @@ import { AttributeDirectiveModule } from './attribute-directive/attribute-direct
     AppRoutingModule,
     AdminModule,
     StructureDirectiveModule,
-    AttributeDirectiveModule
+    AttributeDirectiveModule,
+    PropsModule,
+    BrowserAnimationsModule,
+    RouterModule.forRoot(appRoutes),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
